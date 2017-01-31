@@ -89,7 +89,7 @@ class Pdf extends Component {
       }
       const canvasContext = canvas.getContext('2d');
       const {scale, rotate} = this.props;
-      const viewport = page.getViewport(scale, rotate);
+      const viewport = rotate === undefined ? page.getViewport(scale) : page.getViewport(scale, rotate);
       canvas.height = viewport.height;
       canvas.width = viewport.width;
       page.render({canvasContext, viewport});
